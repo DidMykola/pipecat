@@ -16,15 +16,16 @@ The two exchange messages. The frontend's `delegate` tool puts a message to the 
 
 ## Examples
 
-One engineering assistant, five frontends. [`backend.py`](backend.py) holds the backend, its tools and both prompts: a code change that loops through searching, reading, patching and running the tests until they pass, a two-step research task, and quick CI and pull-request lookups, each taking about as long as the real thing would.
+One engineering assistant, five frontends. [`backend.py`](backend.py) holds the backend, its tools and both prompts: a code change that loops through searching, reading, patching and running the tests until they pass, a two-step research task, and quick CI and pull-request lookups, each taking about as long as the real thing would. A sixth example pairs the first frontend with a simple backend instead, [`simple_backend.py`](simple_backend.py): the weather and restaurant tools many of the examples use, with no long job behind them. That is the work a single LLM holding the tools would do in one round trip, so it shows what the pair adds and costs on everyday tool calls: how soon the user hears the answer, and what the frontend says in the meantime.
 
-| Example                                                        | Frontend                                              |
-| -------------------------------------------------------------- | ----------------------------------------------------- |
-| [`openai-responses-frontend.py`](openai-responses-frontend.py) | A cascade pipeline: STT, OpenAI's Responses API, TTS. |
-| [`google-frontend.py`](google-frontend.py)                     | A cascade pipeline with a Gemini frontend.            |
-| [`anthropic-frontend.py`](anthropic-frontend.py)               | A cascade pipeline with a Claude frontend.            |
-| [`openai-realtime-frontend.py`](openai-realtime-frontend.py)   | OpenAI Realtime, speech to speech.                    |
-| [`gemini-live-frontend.py`](gemini-live-frontend.py)           | Gemini Live, speech to speech.                        |
+| Example                                                                                      | Frontend                                              |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| [`openai-responses-frontend.py`](openai-responses-frontend.py)                               | A cascade pipeline: STT, OpenAI's Responses API, TTS. |
+| [`google-frontend.py`](google-frontend.py)                                                   | A cascade pipeline with a Gemini frontend.            |
+| [`anthropic-frontend.py`](anthropic-frontend.py)                                             | A cascade pipeline with a Claude frontend.            |
+| [`openai-realtime-frontend.py`](openai-realtime-frontend.py)                                 | OpenAI Realtime, speech to speech.                    |
+| [`gemini-live-frontend.py`](gemini-live-frontend.py)                                         | Gemini Live, speech to speech.                        |
+| [`openai-responses-frontend-simple-backend.py`](openai-responses-frontend-simple-backend.py) | The first frontend with the simple backend.           |
 
 Run one the usual way, then connect a client and try "fix the flaky retry test in the HTTP client", then ask for something else while it works:
 

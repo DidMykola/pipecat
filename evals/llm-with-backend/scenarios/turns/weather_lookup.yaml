@@ -1,0 +1,20 @@
+# A weather question to the simple backend: the bot gives the weather,
+# whether or not it says it is checking first.
+- expect:
+    - event: response
+      eval: "the bot opens the conversation in some way (a greeting, an introduction, an offer to help, or a question to get the user started)"
+
+- user: "What's the weather like in Paris right now?"
+  expect:
+    - event: function_call
+      calls:
+        - name: delegate
+    - event: function_call
+      within_ms: 20000
+      calls:
+        - name: get_current_weather
+      check_from: turn_start  # the backend's call, in its own time
+    - event: response
+      within_ms: 20000
+      eval: "gives the current weather in Paris, with the conditions or a temperature (if the bot only says it is checking or looking it up, answer continue, not no: the answer has not come yet)"
+      text_excludes: "backend"

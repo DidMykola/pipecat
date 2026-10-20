@@ -95,6 +95,10 @@ suite:
       - audio/aside_while_waiting
       - audio/result_during_interruption
       - audio/accepted_offer
+  - bot: openai-responses-frontend-simple-backend.py
+    scenarios:
+      - text/weather_lookup
+      - audio/weather_lookup
   - bot: openai-realtime-frontend.py
     scenarios:
       - audio/frontend_only
